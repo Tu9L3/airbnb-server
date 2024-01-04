@@ -1,0 +1,15 @@
+GET http://localhost:3001/api/user
+Content-Type: application/json
+
+{
+    "email":"tungledxh@gmail.com"
+}
+
+###
+GET http://localhost:3001/api/listings?userId=52f68fcc-8063-4269-875b-bb2dad4d0571
+
+###
+GET http://localhost:3001/api/reservations?userId=39fa8eaa-3949-4d82-990c-b6b9ba2f6179
+
+###
+DELETE http://localhost:3001/api/listings/8beb51af-8825-41ae-9e90-963ec6fb14ec
