@@ -2,7 +2,7 @@ GET http://localhost:3001/api/user
 Content-Type: application/json
 
 {
-    "email":"tungledxh@gmail.com"
+    "email":"tunglv.b20pt185@stu.ptit.edu.vn"
 }
 
 ###
@@ -13,3 +13,14 @@ GET http://localhost:3001/api/reservations?userId=39fa8eaa-3949-4d82-990c-b6b9ba
 
 ###
 DELETE http://localhost:3001/api/listings/8beb51af-8825-41ae-9e90-963ec6fb14ec
+
+###
+GET http://localhost:3001/api/favorites/39fa8eaa-3949-4d82-990c-b6b9ba2f6179
+
+###
+POST http://localhost:3001/api/favorites/39fa8eaa-3949-4d82-990c-b6b9ba2f6179
+Content-Type: application/json
+
+{
+    "listingId": "8beb51af-8825-41ae-9e90-963ec6fb14ec"
+}

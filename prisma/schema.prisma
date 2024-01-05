@@ -23,16 +23,7 @@ model User {
   accounts     Account[]
   listings     Listing[]
   reservations Reservation[]
-  favorite     Favorite?
-}
-
-model Favorite {
-  id        String   @id @default(uuid())
-  userId    String   @unique
-  createdAt DateTime @default(now())
-
-  listings Listing[]
-  user     User      @relation(fields: [userId], references: [id])
+  favorites    Favorite[]
 }
 
 model Account {
@@ -68,11 +59,9 @@ model Listing {
   userId        String
   price         Int
 
-  favoriteId String?
-  favorite   Favorite? @relation(fields: [favoriteId], references: [id], onDelete: Cascade)
-
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
+  favorites    Favorite[]
 }
 
 model Reservation {
@@ -86,4 +75,14 @@ model Reservation {
 
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model Favorite {
+  id        String   @id @default(uuid())
+  userId    String
+  listingId String
+  createdAt DateTime @default(now())
+
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

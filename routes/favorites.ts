@@ -1,11 +1,14 @@
 import Router from 'express';
-import { PrismaClient } from '@prisma/client';
-import { addListingToFavorite } from '../controllers/favoriteCtrl';
-
-const prisma = new PrismaClient();
+import {
+  addListingToFavorite,
+  deleteListingToFavorite,
+  getFavorite,
+} from '../controllers/favoriteCtrl';
 
 const favoritesRoutes = Router();
 
-favoritesRoutes.post('/:userId',addListingToFavorite)
+favoritesRoutes.post('/:userId', addListingToFavorite);
+favoritesRoutes.delete('/:userId', deleteListingToFavorite);
+favoritesRoutes.get('/:userId', getFavorite);
 
 export default favoritesRoutes;
